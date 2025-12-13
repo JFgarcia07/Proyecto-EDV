@@ -1,0 +1,9 @@
+Servicios/LogInServlet.class
+DB/LogInDB.class
+Modelo/Usuario.class
+DB/SesionGlobal.class
+Filtros/CorsFilter.class
+com/mycompany/prueba/resources/JakartaEE11Resource.class
+com/mycompany/prueba/JakartaRestConfiguration.class
+DB/DBconnectionSingleton.class
+Controlador/ValidarLogIn.class

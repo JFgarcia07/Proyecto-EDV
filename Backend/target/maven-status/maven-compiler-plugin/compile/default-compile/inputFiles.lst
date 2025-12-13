@@ -1,0 +1,9 @@
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/ValidarLogIn.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/DBconnectionSingleton.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/LogInDB.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/SesionGlobal.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Filtros/CorsFilter.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Modelo/Usuario.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/LogInServlet.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/com/mycompany/Backend/JakartaRestConfiguration.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/com/mycompany/Backend/resources/JakartaEE11Resource.java
