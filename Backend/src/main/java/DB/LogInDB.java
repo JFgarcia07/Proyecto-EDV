@@ -15,7 +15,7 @@ import java.sql.SQLException;
  * @author jfgarcianata
  */
 public class LogInDB {
-     public boolean validarLogIn(Usuario user){
+    public boolean validarLogIn(Usuario user){
         boolean credencialesCorrectas = false;
         Connection connection = DBconnectionSingleton.getInstance().getConnection();
         String sql = "SELECT COUNT(email) FROM Usuario WHERE email = ? AND password = ?";

@@ -20,14 +20,14 @@ public class Usuario {
     private String pais;
     private String idRol;
 
-    public Usuario(String idUsuario, String nombreUsuario, String email, String password, Date fechaNacimiento, String telefono, String pais, String idRol) {
+    public Usuario(String idUsuario, String nombreUsuario, String email, String password, Date fechaNacimiento, String pais, String telefono, String idRol) {
         this.idUsuario = idUsuario;
         this.nombreUsuario = nombreUsuario;
         this.email = email;
         this.password = password;
         this.fechaNacimiento = fechaNacimiento;
-        this.telefono = telefono;
         this.pais = pais;
+        this.telefono = telefono;
         this.idRol = idRol;
     }
 
@@ -97,4 +97,5 @@ public class Usuario {
     public void setIdRol(String idRol) {
         this.idRol = idRol;
     }
+    
 }
