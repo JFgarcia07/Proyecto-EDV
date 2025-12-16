@@ -5,6 +5,7 @@
 package Servicios;
 
 import Controlador.ValidarLogIn;
+import DB.SesionGlobal;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -47,6 +48,7 @@ public class LogInServlet extends HttpServlet {
 
         if (validacion == true) {
             respuesta.put("succes", validacion);
+            respuesta.put("idUsuario", SesionGlobal.idPersonal);
         } else {
             respuesta.put("error", validacion);
         }

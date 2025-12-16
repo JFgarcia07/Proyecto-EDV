@@ -19,7 +19,9 @@ public class Usuario {
     private String telefono;
     private String pais;
     private String idRol;
-
+    private double saldo;
+    private String nombreRol;
+    
     public Usuario(String idUsuario, String nombreUsuario, String email, String password, Date fechaNacimiento, String pais, String telefono, String idRol) {
         this.idUsuario = idUsuario;
         this.nombreUsuario = nombreUsuario;
@@ -97,5 +99,22 @@ public class Usuario {
     public void setIdRol(String idRol) {
         this.idRol = idRol;
     }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
+    public String getNombreRol() {
+        return nombreRol;
+    }
+
+    public void setNombreRol(String nombreRol) {
+        this.nombreRol = nombreRol;
+    }
+    
     
 }
