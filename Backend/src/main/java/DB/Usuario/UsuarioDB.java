@@ -10,13 +10,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Optional;
 
 /**
  *
  * @author jfgarcianata
  */
 public class UsuarioDB {
-    private Connection connection = DBconnectionSingleton.getInstance().getConnection();
+    private final Connection connection = DBconnectionSingleton.getInstance().getConnection();
     
     private final String QUERY_CREAR_USUARIO = "INSERT INTO Usuario (id_usuario, nombre_usuario, email, password, fecha_nacimiento, pais, telefono, id_rol) VALUES (?,?,?,?,?,?,?,?)";
     public void crearUsuario(Usuario user){
@@ -51,5 +52,55 @@ public class UsuarioDB {
             e.printStackTrace();
         }
         return false;
+    }
+    
+    private final String QUERY_ENCONTRAR_USUARIO_POR_ID = "SELECT * FROM Usuario WHERE id_usuario = ?";
+    public Optional<Usuario> obtenerUsuarioPorId(String idUsuario){
+        try (PreparedStatement ps = connection.prepareStatement(QUERY_ENCONTRAR_USUARIO_POR_ID)){
+            ps.setString(1, idUsuario);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                Usuario user = new Usuario();
+                user.setIdUsuario(idUsuario);
+                user.setNombreUsuario(rs.getString("nombre_usuario"));
+                user.setEmail(rs.getString("email"));
+                user.setFechaNacimiento(rs.getDate("fecha_nacimiento"));
+                user.setPais(rs.getString("pais"));
+                user.setTelefono(rs.getString("telefono"));
+                user.setIdRol(rs.getString("id_rol"));
+                user.setSaldo(obtenerBilletera(idUsuario));
+                user.setNombreRol(obtenerRol(rs.getString("id_rol")));
+                return Optional.of(user);
+            }
+        } catch (SQLException e) {
+            System.err.print("Error al obtener usuario" + e.getMessage());
+            e.printStackTrace();
+        }
+        return Optional.empty();
+    }
+    
+    private final String QUERY_OBTENER_BILLETERA_DIGITAL = "SELECT saldo_actual FROM Billetera_digital WHERE id_usuario = ?";
+    private double obtenerBilletera(String idUsuario){
+        try (PreparedStatement ps  = connection.prepareStatement(QUERY_OBTENER_BILLETERA_DIGITAL)){
+            ps.setString(1, idUsuario);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                return rs.getDouble("saldo_actual");
+            }
+        } catch (SQLException e) {
+             System.err.print("Error al obtener billetera" + e.getMessage());
+            e.printStackTrace();
+        }
+        return 0;
+    } 
+    
+    private String obtenerRol (String idRol) {
+        if (idRol.equalsIgnoreCase("ADMIN")) {
+            return "Administrador de Sistema";
+        } else if (idRol.equalsIgnoreCase("EMPRE")) {
+            return "Usuario de Empresa";
+        } else {
+            return "Gamer";
+        }
     }
 }

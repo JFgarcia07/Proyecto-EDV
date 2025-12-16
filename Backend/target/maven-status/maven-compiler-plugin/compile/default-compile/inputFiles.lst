@@ -1,12 +1,17 @@
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/Usuario/CrearUsuario.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/Usuario/RecargarSaldo.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/ValidarLogIn.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/DBconnectionSingleton.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/LogInDB.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/SesionGlobal.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/Usuario/BilleteraDB.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/Usuario/UsuarioDB.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Filtros/CorsFilter.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Modelo/Billetera.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Modelo/Usuario.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/LogInServlet.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Usuario/BilleteraServlet.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Usuario/PerfilSevlet.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Usuario/RegistrarUsuarioServlet.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/com/mycompany/Backend/JakartaRestConfiguration.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/com/mycompany/Backend/resources/JakartaEE11Resource.java

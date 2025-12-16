@@ -26,10 +26,13 @@ public class LogInDB {
             if (rs.next()) {
                 int count = rs.getInt(1); 
                 if (count > 0){
-                    credencialesCorrectas = true;
                     //GUARDAMOS EL CARGO QUE TIENE LA PERSONA QUE ESTA INICIANDO SESION
-                    getCargo(user);
-                    getIdPersonal(user);
+                    SesionGlobal.idRol = getCargo(user);
+                    SesionGlobal.idPersonal = getIdPersonal(user);
+                    System.out.println("ROL:" + SesionGlobal.idRol);
+                    credencialesCorrectas = true;
+                    
+                  
                 }
             }
         } catch (SQLException e) {
@@ -39,37 +42,35 @@ public class LogInDB {
         return credencialesCorrectas;
     }
     
-    private void getCargo(Usuario user){
-        String cargo = "";
+    private String getCargo(Usuario user){
         Connection con = DBconnectionSingleton.getInstance().getConnection();
         String sql = "SELECT id_rol FROM Usuario WHERE email = ? AND password = ?";
         try (PreparedStatement ps = con.prepareStatement(sql)){
             ps.setString(1, user.getEmail());
             ps.setString(2, user.getPassword());
             ResultSet rs = ps.executeQuery();
-            while(rs.next()){
-                cargo = rs.getString("id_rol");
-                SesionGlobal.idRol = cargo;
-                System.out.println(cargo);
+            if(rs.next()){
+                return rs.getString("id_rol");
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return null;
     }
     
-    private void getIdPersonal(Usuario user){
+    private String getIdPersonal(Usuario user){
         Connection connection = DBconnectionSingleton.getInstance().getConnection();
         String sql = "SELECT id_usuario FROM Usuario WHERE email = ? AND password = ?";
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ps.setString(1, user.getEmail());
             ps.setString(2, user.getPassword());
             ResultSet rs = ps.executeQuery();
-            while(rs.next()){
-                SesionGlobal.idPersonal = rs.getString("id_personal");
+            if(rs.next()){
+               return rs.getString("id_usuario");
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
+        return null;
     }
 }
