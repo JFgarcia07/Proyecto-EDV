@@ -19,7 +19,6 @@ public class CrearUsuario {
      * CODIGOS
      * TODO OK: 200
      * USUARIO YA EXISTENTE: 400
-     * FALTAN DATOS: 401
      * @param json
      * @return 
      */
