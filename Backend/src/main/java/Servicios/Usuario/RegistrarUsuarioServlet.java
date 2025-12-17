@@ -6,7 +6,6 @@ package Servicios.Usuario;
 
 import Controlador.Usuario.CrearUsuario;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -61,19 +60,16 @@ public class RegistrarUsuarioServlet extends HttpServlet {
         System.out.println(codigoRespuesta);
         
         JSONObject respuesta = new JSONObject();
-        
-        switch (codigoRespuesta) {
-            case 200:
-                respuesta.put("succes", codigoRespuesta);
-                break;
-            case 400:
-                respuesta.put("error", codigoRespuesta);
-                break;
-            case 401:
-                respuesta.put("error", 402);
-                break;
-            default:
-                break;
+       
+        if (codigoRespuesta == 200) {
+            response.setStatus(HttpServletResponse.SC_OK);
+            json.put("mensaje", "¡Bienvenido! Usuario creado con exito.");
+        } else if (codigoRespuesta == 400) {
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            json.put("mensaje", "Error: El id de usuerio ya existe.");
+        } else {
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            json.put("mensaje", "Error en la base de datos.");
         }
         
         response.getWriter().write(respuesta.toString());
