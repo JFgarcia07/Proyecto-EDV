@@ -49,6 +49,8 @@ public class LogInServlet extends HttpServlet {
         if (validacion == true) {
             respuesta.put("succes", validacion);
             respuesta.put("idUsuario", SesionGlobal.idPersonal);
+            respuesta.put("idRol", SesionGlobal.idRol);
+            respuesta.put("idEmpresa", SesionGlobal.idEmpresa);
         } else {
             respuesta.put("error", validacion);
         }

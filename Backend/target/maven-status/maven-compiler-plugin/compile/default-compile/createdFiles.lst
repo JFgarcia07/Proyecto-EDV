@@ -7,12 +7,16 @@ com/mycompany/prueba/JakartaRestConfiguration.class
 Servicios/Usuario/BilleteraServlet.class
 Modelo/Juego.class
 Controlador/Empresa/CrearEmpresa.class
+Servicios/Juego/CrearJuegoServlet.class
 DB/Empresa/ComisionGlobalDB.class
 Servicios/Usuario/PerfilSevlet.class
+Servicios/Empresa/ListarUsuarioEmpresa.class
+DB/Juego/JuegoDB.class
 Modelo/Empresa.class
 Controlador/Usuario/CrearUsuario.class
 Servicios/Usuario/RegistrarUsuarioServlet.class
 Controlador/ValidarLogIn.class
+DB/UsuarioEmpresa/UsuarioEmpresaDB.class
 Modelo/Billetera.class
 Servicios/Empresa/ListarEmpresasServlet.class
 DB/Usuario/BilleteraDB.class
@@ -22,6 +26,10 @@ Modelo/Usuario.class
 Modelo/ComisionGlobal.class
 com/mycompany/prueba/resources/JakartaEE11Resource.class
 DB/DBconnectionSingleton.class
+Servicios/Juego/EditarJuegoServlet.class
+Controlador/Juego/CRUDJuego.class
+Servicios/Juego/ListarJuegosEmpresaServlet.class
 DB/SesionGlobal.class
 Servicios/Usuario/CrearUsuarioEmpresaServlet.class
 Servicios/Empresa/CrearEmpresaServlet.class
+Servicios/Juego/DesactivarJuego.class

@@ -1,4 +1,5 @@
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/Empresa/CrearEmpresa.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/Juego/CRUDJuego.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/Usuario/CrearUsuario.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/Usuario/CrearUsuarioEmpresa.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/Usuario/RecargarSaldo.java
@@ -6,10 +7,12 @@
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/DBconnectionSingleton.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/Empresa/ComisionGlobalDB.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/Empresa/EmpresaDB.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/Juego/JuegoDB.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/LogInDB.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/SesionGlobal.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/Usuario/BilleteraDB.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/Usuario/UsuarioDB.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/UsuarioEmpresa/UsuarioEmpresaDB.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Filtros/CorsFilter.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Modelo/Billetera.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Modelo/ComisionGlobal.java
@@ -18,6 +21,11 @@
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Modelo/Usuario.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Empresa/CrearEmpresaServlet.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Empresa/ListarEmpresasServlet.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Empresa/ListarUsuarioEmpresa.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Juego/CrearJuegoServlet.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Juego/DesactivarJuego.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Juego/EditarJuegoServlet.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Juego/ListarJuegosEmpresaServlet.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/LogInServlet.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Usuario/BilleteraServlet.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Usuario/CrearUsuarioEmpresaServlet.java

@@ -69,7 +69,7 @@ public class UsuarioDB {
                 user.setTelefono(rs.getString("telefono"));
                 user.setIdRol(rs.getString("id_rol"));
                 user.setSaldo(obtenerBilletera(idUsuario));
-                user.setNombreRol(obtenerRol(rs.getString("id_rol")));
+                user.setNombreRol(obtenerNombreRol(rs.getString("id_rol")));
                 return Optional.of(user);
             }
         } catch (SQLException e) {
@@ -94,7 +94,7 @@ public class UsuarioDB {
         return 0;
     } 
     
-    private String obtenerRol (String idRol) {
+    private String obtenerNombreRol (String idRol) {
         if (idRol.equalsIgnoreCase("ADMIN")) {
             return "Administrador de Sistema";
         } else if (idRol.equalsIgnoreCase("EMPRE")) {
@@ -103,4 +103,19 @@ public class UsuarioDB {
             return "Gamer";
         }
     }
+    
+    private final String QUERY_OBTENER_ID_ROL = "SELECT (id_rol) FROM Usuario WHERE id_usuario = ?";
+    public String obtenerRol (String idUsuario) {
+        try (PreparedStatement ps = connection.prepareStatement(QUERY_OBTENER_ID_ROL)){
+            ps.setString(1,idUsuario);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                return rs.getString("id_rol");
+            }
+        } catch (SQLException e) {
+            System.err.print("Error al obtener id rol " + e.getMessage());
+        }
+        return null;
+    }
+
 }
