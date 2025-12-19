@@ -15,9 +15,11 @@ import java.sql.SQLException;
  * @author jfgarcianata
  */
 public class LogInDB {
+    
+    private Connection connection = DBconnectionSingleton.getInstance().getConnection();
+    
     public boolean validarLogIn(Usuario user){
         boolean credencialesCorrectas = false;
-        Connection connection = DBconnectionSingleton.getInstance().getConnection();
         String sql = "SELECT COUNT(email) FROM Usuario WHERE email = ? AND password = ?";
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ps.setString(1, user.getEmail());
@@ -29,10 +31,12 @@ public class LogInDB {
                     //GUARDAMOS EL CARGO QUE TIENE LA PERSONA QUE ESTA INICIANDO SESION
                     SesionGlobal.idRol = getCargo(user);
                     SesionGlobal.idPersonal = getIdPersonal(user);
-                    System.out.println("ROL:" + SesionGlobal.idRol);
+                    SesionGlobal.idEmpresa = obtenerIdEmprsaUsuario(user);
+                    System.out.println(SesionGlobal.idEmpresa);
+
+                    
                     credencialesCorrectas = true;
                     
-                  
                 }
             }
         } catch (SQLException e) {
@@ -43,9 +47,8 @@ public class LogInDB {
     }
     
     private String getCargo(Usuario user){
-        Connection con = DBconnectionSingleton.getInstance().getConnection();
         String sql = "SELECT id_rol FROM Usuario WHERE email = ? AND password = ?";
-        try (PreparedStatement ps = con.prepareStatement(sql)){
+        try (PreparedStatement ps = connection.prepareStatement(sql)){
             ps.setString(1, user.getEmail());
             ps.setString(2, user.getPassword());
             ResultSet rs = ps.executeQuery();
@@ -59,7 +62,6 @@ public class LogInDB {
     }
     
     private String getIdPersonal(Usuario user){
-        Connection connection = DBconnectionSingleton.getInstance().getConnection();
         String sql = "SELECT id_usuario FROM Usuario WHERE email = ? AND password = ?";
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ps.setString(1, user.getEmail());
@@ -70,6 +72,20 @@ public class LogInDB {
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }
+        return null;
+    }
+    
+    private final String QUERY_OBTENER_ID_EMPRESA_USUARIO = "SELECT ue.id_empresa FROM Usuario u INNER JOIN Usuario_empresa ue ON u.id_usuario = ue.id_usuario WHERE u.email = ?";
+    private String obtenerIdEmprsaUsuario(Usuario user) {
+        try (PreparedStatement ps = connection.prepareStatement(QUERY_OBTENER_ID_EMPRESA_USUARIO)) {
+            ps.setString(1, user.getEmail());
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                return rs.getString("id_empresa");
+            }
+        } catch (SQLException e) {
+            System.err.print("Error al obtner el idEmpresa de Ususario-empresa");
         }
         return null;
     }

@@ -11,4 +11,5 @@ package DB;
 public class SesionGlobal {
     public static String idRol;
     public static String idPersonal;
+    public static String idEmpresa;
 }

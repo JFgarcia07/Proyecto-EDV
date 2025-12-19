@@ -42,7 +42,6 @@ public class CrearUsuarioEmpresa {
             return 401;
         }
         
-        
         userDB.crearUsuario(empresaUser);
         empresaDB.UsuarioEmpresa(idEmpresa, idUsuario);
         return 200;
