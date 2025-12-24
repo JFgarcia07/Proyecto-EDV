@@ -6,6 +6,8 @@ package Controlador.Biblioteca;
 
 import DB.Biblioteca.BibliotecaDB;
 import DB.SesionGlobal;
+import Modelo.Juego;
+import java.util.List;
 
 /**
  *
@@ -16,5 +18,13 @@ public class Biblioteca {
     
     public void llenarDatosBiblioteca(String idJuego){
         biblioDB.llenarBiblioteca(SesionGlobal.idPersonal, idJuego);
+    }
+    
+    public List<Juego> obtnerJuegosBiblioteca(String idUsuario){
+        return biblioDB.obtenerJuegosBiblioteca(idUsuario);
+    }
+    
+    public void instalarJuego(String idJuego){
+        biblioDB.instalarJuego(SesionGlobal.idPersonal, idJuego);
     }
 }

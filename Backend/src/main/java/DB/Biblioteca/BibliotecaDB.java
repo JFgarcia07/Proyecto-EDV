@@ -32,11 +32,12 @@ public class BibliotecaDB {
         }
     }
     
-    private static final String QUERY_OBTENER_JUEGOS_BIBLIOTECA = "SELECT j.id_juego, j.titulo, j.descripcion, j.precio, "
-        + "j.recursos_minimos, j.clasificacion_edad, j.fecha_lanzamiento, j.imagen "
-        + "FROM Biblioteca b "
-        + "INNER JOIN Juego j ON b.id_juego = j.id_juego "
-        + "WHERE b.id_usuario = ?";
+    private static final String QUERY_OBTENER_JUEGOS_BIBLIOTECA
+            = "SELECT j.id_juego, j.titulo, j.descripcion, j.precio, "
+            + "j.recursos_minimos, j.clasificacion_edad, j.fecha_lanzamiento, j.imagen, b.estado_instalacion "
+            + "FROM Biblioteca b "
+            + "INNER JOIN Juego j ON b.id_juego = j.id_juego "
+            + "WHERE b.id_usuario = ?";
     public List<Juego> obtenerJuegosBiblioteca(String idUsuario){
         List<Juego> listaJuegosBiblioteca = new ArrayList<>();
         try (PreparedStatement ps = conn.prepareStatement(QUERY_OBTENER_JUEGOS_BIBLIOTECA)){
@@ -51,6 +52,7 @@ public class BibliotecaDB {
                 String clasificacion = rs.getString("clasificacion_edad");
                 Date fecha = rs.getDate("fecha_lanzamiento");
                 String imagen = rs.getString("imagen");
+                boolean estadoInstalacion = rs.getBoolean("estado_instalacion");
                 
                 Juego juego = new Juego();
                 
@@ -62,6 +64,7 @@ public class BibliotecaDB {
                 juego.setClasificacion(clasificacion);
                 juego.setFechaLanzamiento(fecha);
                 juego.setImagen(imagen);
+                juego.setEstadoInstalacion(estadoInstalacion);
                 
                 listaJuegosBiblioteca.add(juego);
                 
@@ -71,4 +74,16 @@ public class BibliotecaDB {
         }
         return listaJuegosBiblioteca;
     }
+    
+    private final String QUERY_INSTALAR_JUEGO = "UPDATE Biblioteca SET estado_instalacion = 1 WHERE id_usuario = ? AND id_juego = ?";
+    public void instalarJuego(String idUsuario,String idJuego){
+        try (PreparedStatement ps = conn.prepareStatement(QUERY_INSTALAR_JUEGO)){
+            ps.setString(1, idUsuario);
+            ps.setString(2, idJuego);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            System.err.print("Error al instalar el juego " + e.getMessage());
+        }
+    }
+    
 }
