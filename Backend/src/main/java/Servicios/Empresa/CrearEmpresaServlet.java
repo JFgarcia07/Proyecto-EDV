@@ -5,7 +5,7 @@
 package Servicios.Empresa;
 
 import Controlador.Empresa.CrearEmpresa;
-import DB.Empresa.ComisionGlobalDB;
+import DB.Comision.ComisionGlobalDB;
 import Modelo.ComisionGlobal;
 import com.google.gson.Gson;
 import java.io.IOException;

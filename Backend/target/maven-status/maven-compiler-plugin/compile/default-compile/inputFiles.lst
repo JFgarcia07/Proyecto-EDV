@@ -1,5 +1,6 @@
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/Biblioteca/Biblioteca.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/Categoria/CRUDCategoria.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/Comision/ComisionGlob.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/Empresa/CrearEmpresa.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/Juego/CRUDJuego.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/Juego/JuegoCategorias.java
@@ -10,8 +11,8 @@
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/ValidarLogIn.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/Biblioteca/BibliotecaDB.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/Categoria/CategoriaDB.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/Comision/ComisionGlobalDB.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/DBconnectionSingleton.java
-/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/Empresa/ComisionGlobalDB.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/Empresa/EmpresaDB.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/Juego/JuegoDB.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/LogInDB.java
@@ -40,6 +41,7 @@
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Categoria/ListarCategorias.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Categoria/ListarPropuestasCategoria.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Categoria/RechazarPropuesta.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Comision/ComisionServlet.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Empresa/CrearEmpresaServlet.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Empresa/ListarEmpresasServlet.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Empresa/ListarUsuarioEmpresa.java

@@ -8,8 +8,8 @@ DB/Biblioteca/BibliotecaDB.class
 com/mycompany/prueba/JakartaRestConfiguration.class
 Servicios/Usuario/BilleteraServlet.class
 Modelo/Juego.class
+Servicios/Comision/ComisionServlet.class
 Controlador/Empresa/CrearEmpresa.class
-DB/Empresa/ComisionGlobalDB.class
 Servicios/Usuario/PerfilSevlet.class
 Modelo/JuegoCategoria.class
 Servicios/Usuario/RegistrarUsuarioServlet.class
@@ -29,6 +29,7 @@ Modelo/TransaccionVenta.class
 DB/SesionGlobal.class
 Servicios/Juego/ListarJuegos.class
 Servicios/Usuario/CrearUsuarioEmpresaServlet.class
+DB/Comision/ComisionGlobalDB.class
 Servicios/Juego/DesactivarJuego.class
 Servicios/Biblioteca/InstalarJuegoBiblioteca.class
 Servicios/Categoria/EditarCategoria.class
@@ -58,4 +59,5 @@ Servicios/Juego/ListarJuegosEmpresaServlet.class
 Controlador/Categoria/CRUDCategoria.class
 Servicios/Empresa/CrearEmpresaServlet.class
 Servicios/Categoria/EliminarCategoria.class
+Controlador/Comision/ComisionGlob.class
 Servicios/Categoria/RechazarPropuesta.class
