@@ -46,7 +46,6 @@ public class BilleteraDB {
     }
     
     private final String QUERY_RECARGAR_SALDO = "UPDATE Billetera_digital SET saldo_actual = ? WHERE id_usuario = ?";
-
     public void recargarSaldo(String idUsuario, double valor) {
         Double valorTotal = valor + obtenerSaldoActual(idUsuario);
         try (PreparedStatement ps = conn.prepareStatement(QUERY_RECARGAR_SALDO)) {
@@ -59,8 +58,7 @@ public class BilleteraDB {
     }
     
     private final String QUERY_OBTENER_SALDO = "SELECT (saldo_actual) FROM Billetera_digital WHERE id_usuario = ?";
-
-    private double obtenerSaldoActual(String idUsuario) {
+    public double obtenerSaldoActual(String idUsuario) {
         try (PreparedStatement ps = conn.prepareStatement(QUERY_OBTENER_SALDO)) {
             ps.setString(1, idUsuario);
             ResultSet rs = ps.executeQuery();
@@ -71,5 +69,17 @@ public class BilleteraDB {
             System.err.print("Error al buscar el saldo de la billetera: " + e.getMessage());
         }
         return 0;
+    }
+    
+    private final String QUERY_RESTAR_SALDO = "UPDATE Billetera_digital SET saldo_actual = ? WHERE id_usuario = ?";
+    public void restarSaldo(String idUsuario, double valorRestar){
+        Double valorTotal = obtenerSaldoActual(idUsuario) - valorRestar;
+        try (PreparedStatement ps = conn.prepareStatement(QUERY_RESTAR_SALDO)) {
+            ps.setDouble(1, valorTotal);
+            ps.setString(2, idUsuario);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            System.err.print("Error al actulizar el saldo de la billetera " + e.getMessage());
+        } 
     }
 }

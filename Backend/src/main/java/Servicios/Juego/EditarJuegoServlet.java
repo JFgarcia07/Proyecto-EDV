@@ -35,18 +35,18 @@ public class EditarJuegoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
-     
+
         PrintWriter out = response.getWriter();
         String idJuego = request.getParameter("id");
-        
-       JSONObject json = new JSONObject();
-       
+
+        JSONObject json = new JSONObject();
+
         try {
             Juego juego = crud.obtenerJuegoPorId(idJuego);
-            
+
             JSONObject data = new JSONObject();
             data.put("titulo", juego.getTitulo());
             data.put("descripcion", juego.getDescripcion());
@@ -55,19 +55,19 @@ public class EditarJuegoServlet extends HttpServlet {
             data.put("clasificacion", juego.getClasificacion());
             data.put("fechaLanzamiento", juego.getFechaLanzamiento().toString());
             data.put("estadoVenta", juego.isEstadoVenta());
-            
+
             json.put("exito", true);
             json.put("juego", data);
-            
+
         } catch (Exception e) {
             json.put("exito", false);
             json.put("mensaje", "Error servidor: " + e.getMessage());
             e.printStackTrace();
         }
-        
+
         out.print(json.toString());
     }
-    
+
     
     /**
      * Handles the HTTP <code>POST</code> method.
