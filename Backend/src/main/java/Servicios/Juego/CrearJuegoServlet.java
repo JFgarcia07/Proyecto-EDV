@@ -56,18 +56,22 @@ public class CrearJuegoServlet extends HttpServlet {
 
             int codigoRespuesta = crud.crearJuego(json);
 
-            if (codigoRespuesta == 200) {
-                response.setStatus(HttpServletResponse.SC_OK); 
-                respuestaJson.put("mensaje", "Videojuego registrado con éxito");
-                respuestaJson.put("exito", true);
-            } else if (codigoRespuesta == 400) {
-                response.setStatus(HttpServletResponse.SC_BAD_REQUEST); 
-                respuestaJson.put("mensaje", "Error: El ID del juego ya existe");
-                respuestaJson.put("exito", false);
-            } else {
-                response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR); 
-                respuestaJson.put("mensaje", "Error interno en la base de datos");
-                respuestaJson.put("exito", false);
+            switch (codigoRespuesta) {
+                case 200:
+                    response.setStatus(HttpServletResponse.SC_OK);
+                    respuestaJson.put("mensaje", "Videojuego registrado con éxito");
+                    respuestaJson.put("exito", true);
+                    break;
+                case 400:
+                    response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+                    respuestaJson.put("mensaje", "Error: El ID del juego ya existe");
+                    respuestaJson.put("exito", false);
+                    break;
+                default:
+                    response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+                    respuestaJson.put("mensaje", "Error interno en la base de datos");
+                    respuestaJson.put("exito", false);
+                    break;
             }
 
         } catch (Exception e) {

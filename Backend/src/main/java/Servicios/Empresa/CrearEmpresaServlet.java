@@ -78,7 +78,7 @@ public class CrearEmpresaServlet extends HttpServlet {
             case 400:
                 respuesta.put("mensaje", "Error: El ID ya existe");
                 break;
-            case 401: // Ojo, en tu switch tenías 402, lo corregí a 401 para que coincida
+            case 401: 
                 respuesta.put("mensaje", "No autorizado");
                 break;
             default:

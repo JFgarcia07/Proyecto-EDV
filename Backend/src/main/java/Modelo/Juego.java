@@ -21,6 +21,7 @@ public class Juego {
     private Date fechaLanzamiento;
     private boolean estadoVenta;
     private String imagen;
+    private String nombreEmpresa;
 
     public Juego(String idJuego, String idEmpresa, String titulo, String descripcion, double precio, String recursosMinimos, String clasificacion, Date fechaLanzamiento, boolean estadoVenta, String imagen) {
         this.idJuego = idJuego;
@@ -38,7 +39,6 @@ public class Juego {
     public Juego() {
     }
 
-    
     
     public String getIdJuego() {
         return idJuego;
@@ -118,6 +118,14 @@ public class Juego {
 
     public void setImagen(String imagen) {
         this.imagen = imagen;
+    }
+
+    public String getNombreEmpresa() {
+        return nombreEmpresa;
+    }
+
+    public void setNombreEmpresa(String nombreEmpresa) {
+        this.nombreEmpresa = nombreEmpresa;
     }
     
 }

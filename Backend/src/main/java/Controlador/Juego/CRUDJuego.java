@@ -7,6 +7,7 @@ package Controlador.Juego;
 import DB.Juego.JuegoDB;
 import Modelo.Juego;
 import java.sql.Date;
+import java.util.List;
 import org.json.JSONObject;
 
 /**
@@ -77,5 +78,13 @@ public class CRUDJuego {
     
     public Juego obtenerJuegoPorId(String idJuego){
         return juegoDB.obtenerJuegoPorId(idJuego);
+    }
+    
+    public List<Juego> listaJuegos(){
+        return juegoDB.listarJuegos();
+    }
+    
+    public Juego inforJuegoPorID(String idJuego){
+        return juegoDB.obtenerInfoJuegoPorID(idJuego);
     }
 }
