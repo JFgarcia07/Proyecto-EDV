@@ -23,12 +23,14 @@ DB/TransaccionVenta/TransaccionVentaDB.class
 Modelo/ComisionGlobal.class
 com/mycompany/prueba/resources/JakartaEE11Resource.class
 DB/DBconnectionSingleton.class
+Servicios/Biblioteca/ListarBiblioteca.class
 Servicios/Juego/EditarJuegoServlet.class
 Modelo/TransaccionVenta.class
 DB/SesionGlobal.class
 Servicios/Juego/ListarJuegos.class
 Servicios/Usuario/CrearUsuarioEmpresaServlet.class
 Servicios/Juego/DesactivarJuego.class
+Servicios/Biblioteca/InstalarJuegoBiblioteca.class
 Servicios/Categoria/EditarCategoria.class
 Controlador/Usuario/CrearUsuarioEmpresa.class
 Servicios/Categoria/AceptarPropuesta.class

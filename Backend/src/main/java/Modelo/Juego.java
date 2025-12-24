@@ -22,6 +22,7 @@ public class Juego {
     private boolean estadoVenta;
     private String imagen;
     private String nombreEmpresa;
+    private boolean estadoInstalacion;
 
     public Juego(String idJuego, String idEmpresa, String titulo, String descripcion, double precio, String recursosMinimos, String clasificacion, Date fechaLanzamiento, boolean estadoVenta, String imagen) {
         this.idJuego = idJuego;
@@ -126,6 +127,14 @@ public class Juego {
 
     public void setNombreEmpresa(String nombreEmpresa) {
         this.nombreEmpresa = nombreEmpresa;
+    }
+
+    public boolean isEstadoInstalacion() {
+        return estadoInstalacion;
+    }
+
+    public void setEstadoInstalacion(boolean estadoInstalacion) {
+        this.estadoInstalacion = estadoInstalacion;
     }
     
 }

@@ -11,7 +11,8 @@ package Modelo;
 public class Biblioteca {
     private String idUsuario;
     private String idJuego;
-
+    private boolean estadoInstalacion;
+    
     public Biblioteca(String idUsuario, String idJuego) {
         this.idUsuario = idUsuario;
         this.idJuego = idJuego;
@@ -32,5 +33,13 @@ public class Biblioteca {
     public void setIdJuego(String idJuego) {
         this.idJuego = idJuego;
     }
-      
+
+    public boolean isEstadoInstalacion() {
+        return estadoInstalacion;
+    }
+
+    public void setEstadoInstalacion(boolean estadoInstalacion) {
+        this.estadoInstalacion = estadoInstalacion;
+    }
+     
 }

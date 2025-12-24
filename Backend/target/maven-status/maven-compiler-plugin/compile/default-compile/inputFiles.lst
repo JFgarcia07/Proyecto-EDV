@@ -31,6 +31,8 @@
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Modelo/JuegoCategoria.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Modelo/TransaccionVenta.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Modelo/Usuario.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Biblioteca/InstalarJuegoBiblioteca.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Biblioteca/ListarBiblioteca.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Categoria/AceptarPropuesta.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Categoria/CrearCategoriaServlet.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Categoria/EditarCategoria.java
