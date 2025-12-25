@@ -99,6 +99,11 @@ public class TransaccionVentaServlet extends HttpServlet {
                 respuesta.put("mensaje", "Error: No tiene el saldo necesario para comprar este juego");
                 respuesta.put("exito", false);
                 break;
+            case 402:
+                response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+                respuesta.put("mensaje", "Error: Este juego ya lo haz comprado antes, y lo tienes disponible en tu biblioteca");
+                respuesta.put("exito", false);
+                break;
             case 403:
                 response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
                 respuesta.put("mensaje", "Error: NO ERES MAYOR DE EDAD, no puedes comprar este juego");

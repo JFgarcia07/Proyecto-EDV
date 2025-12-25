@@ -48,6 +48,10 @@ public class Transaccion {
             }
         }
         
+        if(transaccion.haCompradoElJuegoAntes(SesionGlobal.idPersonal, idJuego) == true){
+            return 402;
+        }
+        
         double comisionPlataforma = CalcularComisionPlaforma(precioVideojuego, idEmpresa);
         double ingresoEmpresa = CalcularIngresoEmpresa(precioVideojuego, idEmpresa);
         
@@ -69,11 +73,11 @@ public class Transaccion {
     }
     
     private double elegirPorcentaje(String idEmpresa){
-        if(transaccion.obtnerComisioneEspecifica(idEmpresa) != 0){
-            return transaccion.obtnerComisioneEspecifica(idEmpresa);
-        } else {
+        if (transaccion.obtnerComisioneEspecifica(idEmpresa) == 0) {
             return transaccion.obtenerComisionGlobal();
         }
+
+        return transaccion.obtnerComisioneEspecifica(idEmpresa);
     }
     
     private double CalcularComisionPlaforma(double montoTotal, String idEmpresa){

@@ -1,7 +1,7 @@
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/Biblioteca/Biblioteca.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/Categoria/CRUDCategoria.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/Comision/ComisionGlob.java
-/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/Empresa/CrearEmpresa.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/Empresa/CRUDEmpresa.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/Juego/CRUDJuego.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/Juego/JuegoCategorias.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/TransaccionVenta/Transaccion.java
@@ -43,6 +43,7 @@
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Categoria/RechazarPropuesta.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Comision/ComisionServlet.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Empresa/CrearEmpresaServlet.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Empresa/EditarEmpresa.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Empresa/ListarEmpresasServlet.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Empresa/ListarUsuarioEmpresa.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Juego/AsignarCategoriaJuegoServlet.java

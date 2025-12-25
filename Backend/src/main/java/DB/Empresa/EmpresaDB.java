@@ -99,4 +99,42 @@ public class EmpresaDB {
         }
         return false;
     }
+    
+    private final String QUERY_OBTENER_EMPRESA_POR_ID = "SELECT * FROM Empresa_desarrolladora WHERE id_empresa = ?";
+    public Empresa obtenerJuegoPorID(String idEmpresa){
+        try (PreparedStatement ps = conn.prepareStatement(QUERY_OBTENER_EMPRESA_POR_ID)){
+            ps.setString(1, idEmpresa);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                String nombreEmpresa = rs.getString("nombre_empresa");
+                String descripcion = rs.getString("descripcion");
+                double porcentajeEspecifico = rs.getDouble("porcentaje_comision_especifica");
+                String idComision = rs.getString("id_comision");
+                
+                Empresa empresa = new Empresa(idEmpresa, nombreEmpresa, descripcion, porcentajeEspecifico, idComision);
+                
+                return empresa;
+            }
+        } catch (Exception e) {
+            System.err.print("Error al obtener la empresa " + e.getMessage());
+        }
+        return null;
+    }
+    
+    private final String QUERY_ACTUALIZAR_EMPRESA = "UPDATE Empresa_desarrolladora "
+            + "SET nombre_empresa = ?, descripcion = ?, porcentaje_comision_especifica = ? "
+            + "WHERE id_empresa = ?";
+    public int actualizarEmpresa(Empresa empresa){
+        try (PreparedStatement ps = conn.prepareStatement(QUERY_ACTUALIZAR_EMPRESA)){
+            ps.setString(1, empresa.getNombreEmpresa());
+            ps.setString(2, empresa.getDescripcion());
+            ps.setDouble(3, empresa.getPorcentajeEspecifico());
+            ps.setString(4, empresa.getIdEmpresa());
+            return ps.executeUpdate();
+        } catch (Exception e) {
+            System.err.print("Error al actualizar la empresa " + e.getMessage());
+        }
+        return -1;
+    }
+    
 }
