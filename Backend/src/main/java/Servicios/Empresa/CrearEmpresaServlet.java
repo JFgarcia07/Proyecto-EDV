@@ -4,7 +4,7 @@
  */
 package Servicios.Empresa;
 
-import Controlador.Empresa.CrearEmpresa;
+import Controlador.Empresa.CRUDEmpresa;
 import DB.Comision.ComisionGlobalDB;
 import Modelo.ComisionGlobal;
 import com.google.gson.Gson;
@@ -58,7 +58,7 @@ public class CrearEmpresaServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        CrearEmpresa crearEmpresa = new CrearEmpresa();
+        CRUDEmpresa crearEmpresa = new CRUDEmpresa();
 
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");

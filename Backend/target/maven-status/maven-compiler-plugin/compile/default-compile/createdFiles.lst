@@ -9,7 +9,6 @@ com/mycompany/prueba/JakartaRestConfiguration.class
 Servicios/Usuario/BilleteraServlet.class
 Modelo/Juego.class
 Servicios/Comision/ComisionServlet.class
-Controlador/Empresa/CrearEmpresa.class
 Servicios/Usuario/PerfilSevlet.class
 Modelo/JuegoCategoria.class
 Servicios/Usuario/RegistrarUsuarioServlet.class
@@ -41,12 +40,14 @@ Filtros/CorsFilter.class
 Servicios/Categoria/ListarCategorias.class
 Servicios/Juego/CrearJuegoServlet.class
 Controlador/Biblioteca/Biblioteca.class
+Controlador/Empresa/CRUDEmpresa.class
 Servicios/Empresa/ListarUsuarioEmpresa.class
 DB/Juego/JuegoDB.class
 Modelo/Empresa.class
 Controlador/Usuario/CrearUsuario.class
 Controlador/TransaccionVenta/Transaccion.class
 Controlador/ValidarLogIn.class
+Servicios/Empresa/EditarEmpresa.class
 Servicios/Juego/AsignarCategoriaJuegoServlet.class
 DB/UsuarioEmpresa/UsuarioEmpresaDB.class
 DB/Usuario/BilleteraDB.class

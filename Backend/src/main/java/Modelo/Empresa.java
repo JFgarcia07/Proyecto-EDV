@@ -23,6 +23,9 @@ public class Empresa {
         this.idPorcentajeGlobal = idPorcentajeGlobal;
     }
 
+    public Empresa() {
+    }
+
     public String getIdEmpresa() {
         return idEmpresa;
     }
