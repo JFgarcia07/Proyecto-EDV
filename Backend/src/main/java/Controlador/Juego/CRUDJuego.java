@@ -59,6 +59,7 @@ public class CRUDJuego {
         Date fechaLanzamiento = dateSQL(json.getString("fecha_lanzamiento"));
         boolean estado = json.getBoolean("estado_venta");
         String imagen = json.getString("imagen");
+        boolean comentarios = json.getBoolean("comentarios");
 
         Juego juego = new Juego();
         juego.setIdJuego(idJuego);
@@ -70,6 +71,7 @@ public class CRUDJuego {
         juego.setFechaLanzamiento(fechaLanzamiento);
         juego.setEstadoVenta(estado);
         juego.setImagen(imagen);
+        juego.setComentarios(comentarios);
         
         juegoDB.editarJuego(juego);
         return 200;
@@ -86,5 +88,39 @@ public class CRUDJuego {
     
     public Juego inforJuegoPorID(String idJuego){
         return juegoDB.obtenerInfoJuegoPorID(idJuego);
+    }
+    
+    public int desactivarComentarioJuego(String idJuego){
+        int filasAfectadas = juegoDB.desactivarComentariosJuego(idJuego);
+        
+        if(filasAfectadas > 0){
+            return 200;
+        }
+        
+        return 400;
+    }
+    
+    public int desactivarComentariosEmpresa(String idEmpresa){
+        int filasAfectadas = juegoDB.desactivarComentariosJuegoEmpresa(idEmpresa);
+        
+        if(filasAfectadas > 0){
+            return 200;
+        }
+        
+        return 400;
+    }
+    
+    public int activarComentariosEmpresa(String idEmpresa){
+        int filasAfectadas = juegoDB.activarComentariosJuegosEmpresa(idEmpresa);
+        
+        if(filasAfectadas > 0){
+            return 200;
+        }
+        
+        return 400;
+    }
+    
+    public boolean verificarSiSePuedeComentar(String idJuego){
+        return juegoDB.sePuedeComentar(idJuego);
     }
 }

@@ -55,6 +55,7 @@ public class EditarJuegoServlet extends HttpServlet {
             data.put("clasificacion", juego.getClasificacion());
             data.put("fechaLanzamiento", juego.getFechaLanzamiento().toString());
             data.put("estadoVenta", juego.isEstadoVenta());
+            data.put("comentarios", juego.isComentarios());
 
             json.put("exito", true);
             json.put("juego", data);

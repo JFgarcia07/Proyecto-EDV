@@ -70,8 +70,10 @@ public class JuegoDB {
                 Date fechaLanzamiento = rs.getDate("fecha_lanzamiento");
                 boolean estado = rs.getBoolean("estado_venta");
                 String imagen = rs.getString("imagen");
+                boolean comentarios = rs.getBoolean("comentarios");
                 
                 Juego juego = new Juego(idJuego, idEmpresa, titulo, descripcion, precio, recursos, clasificacion, fechaLanzamiento, estado, imagen);
+                juego.setComentarios(comentarios);
                 
                 listaJuegos.add(juego);
             }
@@ -116,8 +118,8 @@ public class JuegoDB {
     }
     
     private final String QUERY_EDITAR_JUEGO = "UPDATE Juego SET titulo = ?, descripcion = ?, "
-            + " precio = ?, recursos_minimos = ?, clasificacion_edad = ?, fecha_lanzamiento = ?, estado_venta = ?,imagen = ?"
-            + " where id_juego = ?";
+            + " precio = ?, recursos_minimos = ?, clasificacion_edad = ?, fecha_lanzamiento = ?, estado_venta = ?, imagen = ?, comentarios = ?"
+            + " WHERE id_juego = ?";
     public void editarJuego(Juego juego){
         try (PreparedStatement ps = conn.prepareStatement(QUERY_EDITAR_JUEGO)){
             ps.setString(1, juego.getTitulo());
@@ -128,7 +130,8 @@ public class JuegoDB {
             ps.setDate(6, juego.getFechaLanzamiento());
             ps.setBoolean(7, juego.isEstadoVenta());
             ps.setString(8, juego.getImagen());
-            ps.setString(9, juego.getIdJuego());
+            ps.setBoolean(9, juego.isComentarios());
+            ps.setString(10, juego.getIdJuego());
             ps.executeUpdate();
         } catch (SQLException e) {
             System.err.print("Error al editar el juego " + e.getMessage());
@@ -151,8 +154,10 @@ public class JuegoDB {
                 Date fecha = rs.getDate("fecha_lanzamiento");
                 boolean estado = rs.getBoolean("estado_venta");
                 String imagen = rs.getString("imagen");
+                boolean comentarios = rs.getBoolean("comentarios");
                 
                 Juego juego = new Juego(idJuego, idEmpresa, titulo, descripcion, precio, recursos, clasificacion, fecha, estado ,imagen);
+                juego.setComentarios(comentarios);
                 
                 return juego;
             }
@@ -216,8 +221,10 @@ public class JuegoDB {
                 Date fechaLanzamiento = rs.getDate("fecha_lanzamiento");
                 boolean estado = rs.getBoolean("estado_venta");
                 String imagen = rs.getString("imagen");
+                boolean comentarios = rs.getBoolean("comentarios");
                 
                 Juego juego = new Juego(idJuego, idEmpresa, titulo, descripcion, precio, recursos, clasificacion, fechaLanzamiento, estado, imagen);
+                juego.setComentarios(comentarios);
                 
                 listaJuegos.add(juego);
             }
@@ -264,5 +271,50 @@ public class JuegoDB {
         return null;
     }
     
+    private final String QUERY_DESACTIVAR_COMENTARIOS_JUEGO = "UPDATE Juego SET comentarios = 0 WHERE id_juego = ?";
+    public int desactivarComentariosJuego(String idJuego){
+        try (PreparedStatement ps = conn.prepareStatement(QUERY_DESACTIVAR_COMENTARIOS_JUEGO)){
+            ps.setString(1, idJuego);
+            return ps.executeUpdate();
+        } catch (SQLException e) {
+            System.err.print("Error al desactivar comentarios del juego " + e.getMessage());
+        }
+        return -1;
+    }
     
+    private final String QUERY_DESACTIVAR_COMENTARIOS_EMPRESA = "UPDATE Juego SET comentarios = 0 WHERE id_empresa = ?";
+    public int desactivarComentariosJuegoEmpresa(String idEmpresa){
+        try (PreparedStatement ps = conn.prepareStatement(QUERY_DESACTIVAR_COMENTARIOS_EMPRESA)){
+            ps.setString(1, idEmpresa);
+            return ps.executeUpdate();
+        } catch (SQLException e) {
+            System.err.print("Error al desactivar comentarios del juego " + e.getMessage());
+        }
+        return -1;
+    }
+    
+    private final String QUERY_ACTIVAR_COMENTARIOS_EMPRESA = "UPDATE Juego SET comentarios = 1 WHEERE id_empresa = ?";
+    public int activarComentariosJuegosEmpresa(String idEmpresa){
+        try (PreparedStatement ps = conn.prepareStatement(QUERY_ACTIVAR_COMENTARIOS_EMPRESA)){
+            ps.setString(1,idEmpresa);
+            return ps.executeUpdate();
+        } catch (SQLException e) {
+            System.err.print("Error al actviar los comentarios " + e.getMessage());
+        }
+        return -1;
+    }
+    
+    private final String QUERY_VERIFICAR_SI_SE_PUEDE_COMENTAR = "SELECT (comentarios) FROM Juego WHERE id_juego = ?";
+    public boolean sePuedeComentar(String idJuego){
+        try (PreparedStatement ps = conn.prepareStatement(QUERY_VERIFICAR_SI_SE_PUEDE_COMENTAR)){
+            ps.setString(1, idJuego);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                return rs.getBoolean("comentarios");
+            }
+        } catch (SQLException e) {
+            System.err.print("Error al verificar si se puede comentar " + e.getMessage());
+        }
+        return false;
+    }
 }
