@@ -6,11 +6,15 @@ Servicios/Categoria/CrearCategoriaServlet.class
 DB/Usuario/UsuarioDB.class
 DB/Biblioteca/BibliotecaDB.class
 com/mycompany/prueba/JakartaRestConfiguration.class
+Servicios/Juego/DesactivarComentariosJuego.class
 Servicios/Usuario/BilleteraServlet.class
 Modelo/Juego.class
 Servicios/Comision/ComisionServlet.class
+Servicios/Juego/SePuedeComentar.class
 Servicios/Usuario/PerfilSevlet.class
+Controlador/Calificacion_Comentario/CalificacionComentario.class
 Modelo/JuegoCategoria.class
+Servicios/Calificacion_comentario/CalificacionComentarioServlet.class
 Servicios/Usuario/RegistrarUsuarioServlet.class
 Servicios/Juego/ListarCategoriasAprobadas.class
 Modelo/Billetera.class
@@ -30,6 +34,7 @@ Servicios/Juego/ListarJuegos.class
 Servicios/Usuario/CrearUsuarioEmpresaServlet.class
 DB/Comision/ComisionGlobalDB.class
 Servicios/Juego/DesactivarJuego.class
+DB/Calificacion_comentario/ComentarioDB.class
 Servicios/Biblioteca/InstalarJuegoBiblioteca.class
 Servicios/Categoria/EditarCategoria.class
 Controlador/Usuario/CrearUsuarioEmpresa.class
@@ -53,8 +58,10 @@ DB/UsuarioEmpresa/UsuarioEmpresaDB.class
 DB/Usuario/BilleteraDB.class
 Controlador/Usuario/RecargarSaldo.class
 Modelo/CategoriasAprobadas.class
+Servicios/Juego/DesactivarComentariosEmpresa.class
 Servicios/Categoria/ListarPropuestasCategoria.class
 Servicios/Juego/InfoJuegoPorID.class
+Modelo/Comentario.class
 Controlador/Juego/CRUDJuego.class
 Servicios/Juego/ListarJuegosEmpresaServlet.class
 Controlador/Categoria/CRUDCategoria.class
