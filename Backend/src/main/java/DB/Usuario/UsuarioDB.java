@@ -54,7 +54,7 @@ public class UsuarioDB {
         return false;
     }
     
-    public final String QUERY_ENCONTRAR_USUARIO_POR_ID = "SELECT * FROM Usuario WHERE id_usuario = ?";
+    private final String QUERY_ENCONTRAR_USUARIO_POR_ID = "SELECT * FROM Usuario WHERE id_usuario = ?";
     public Optional<Usuario> obtenerUsuarioPorId(String idUsuario){
         try (PreparedStatement ps = connection.prepareStatement(QUERY_ENCONTRAR_USUARIO_POR_ID)){
             ps.setString(1, idUsuario);
