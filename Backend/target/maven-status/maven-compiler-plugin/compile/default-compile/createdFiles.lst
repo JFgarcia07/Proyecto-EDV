@@ -1,3 +1,4 @@
+DB/GrupoFamiliarDB.class
 Servicios/LogInServlet.class
 DB/LogInDB.class
 Servicios/TransaccionVenta/TransaccionVentaServlet.class
@@ -19,6 +20,8 @@ Servicios/Usuario/RegistrarUsuarioServlet.class
 Servicios/Juego/ListarCategoriasAprobadas.class
 Modelo/Billetera.class
 Servicios/Empresa/ListarEmpresasServlet.class
+Modelo/MiembroGrupo.class
+Servicios/GrupoFamiliar/AgregarUsuarioGrupo.class
 DB/Empresa/EmpresaDB.class
 Modelo/Usuario.class
 Modelo/Categoria.class
@@ -35,8 +38,10 @@ Servicios/Usuario/CrearUsuarioEmpresaServlet.class
 DB/Comision/ComisionGlobalDB.class
 Servicios/Juego/DesactivarJuego.class
 DB/Calificacion_comentario/ComentarioDB.class
+Servicios/GrupoFamiliar/EliminarMiembroGrupo.class
 Servicios/Biblioteca/InstalarJuegoBiblioteca.class
 Servicios/Categoria/EditarCategoria.class
+Servicios/GrupoFamiliar/ListarGrupos.class
 Controlador/Usuario/CrearUsuarioEmpresa.class
 Servicios/Categoria/AceptarPropuesta.class
 DB/Categoria/CategoriaDB.class
@@ -45,6 +50,7 @@ Filtros/CorsFilter.class
 Servicios/Categoria/ListarCategorias.class
 Servicios/Juego/CrearJuegoServlet.class
 Controlador/Biblioteca/Biblioteca.class
+Servicios/GrupoFamiliar/CrearGrupoFamiliar.class
 Controlador/Empresa/CRUDEmpresa.class
 Servicios/Empresa/ListarUsuarioEmpresa.class
 DB/Juego/JuegoDB.class
@@ -60,7 +66,9 @@ Controlador/Usuario/RecargarSaldo.class
 Modelo/CategoriasAprobadas.class
 Servicios/Juego/DesactivarComentariosEmpresa.class
 Servicios/Categoria/ListarPropuestasCategoria.class
+Modelo/GrupoFamiliar.class
 Servicios/Juego/InfoJuegoPorID.class
+Controlador/GrupoFamiliar/GrupFamiliar.class
 Modelo/Comentario.class
 Controlador/Juego/CRUDJuego.class
 Servicios/Juego/ListarJuegosEmpresaServlet.class
