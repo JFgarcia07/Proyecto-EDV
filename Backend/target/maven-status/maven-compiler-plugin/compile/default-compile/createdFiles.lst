@@ -1,4 +1,3 @@
-DB/GrupoFamiliarDB.class
 Servicios/LogInServlet.class
 DB/LogInDB.class
 Servicios/TransaccionVenta/TransaccionVentaServlet.class
@@ -6,6 +5,7 @@ Modelo/Biblioteca.class
 Servicios/Categoria/CrearCategoriaServlet.class
 DB/Usuario/UsuarioDB.class
 DB/Biblioteca/BibliotecaDB.class
+DB/BannerPrincipal/BannerDB.class
 com/mycompany/prueba/JakartaRestConfiguration.class
 Servicios/Juego/DesactivarComentariosJuego.class
 Servicios/Usuario/BilleteraServlet.class
@@ -13,6 +13,7 @@ Modelo/Juego.class
 Servicios/Comision/ComisionServlet.class
 Servicios/Juego/SePuedeComentar.class
 Servicios/Usuario/PerfilSevlet.class
+DB/GrupoFamiliar/GrupoFamiliarDB.class
 Controlador/Calificacion_Comentario/CalificacionComentario.class
 Modelo/JuegoCategoria.class
 Servicios/Calificacion_comentario/CalificacionComentarioServlet.class
@@ -22,6 +23,7 @@ Modelo/Billetera.class
 Servicios/Empresa/ListarEmpresasServlet.class
 Modelo/MiembroGrupo.class
 Servicios/GrupoFamiliar/AgregarUsuarioGrupo.class
+Controlador/BannerPrincipal/CRUDBanner.class
 DB/Empresa/EmpresaDB.class
 Modelo/Usuario.class
 Modelo/Categoria.class
@@ -34,6 +36,7 @@ Servicios/Juego/EditarJuegoServlet.class
 Modelo/TransaccionVenta.class
 DB/SesionGlobal.class
 Servicios/Juego/ListarJuegos.class
+Servicios/Juego/ListarJuegosRecomendados.class
 Servicios/Usuario/CrearUsuarioEmpresaServlet.class
 DB/Comision/ComisionGlobalDB.class
 Servicios/Juego/DesactivarJuego.class
@@ -41,15 +44,20 @@ DB/Calificacion_comentario/ComentarioDB.class
 Servicios/GrupoFamiliar/EliminarMiembroGrupo.class
 Servicios/Biblioteca/InstalarJuegoBiblioteca.class
 Servicios/Categoria/EditarCategoria.class
+Servicios/BannerPrincipal/ListarImagenesBanner.class
 Servicios/GrupoFamiliar/ListarGrupos.class
 Controlador/Usuario/CrearUsuarioEmpresa.class
+Servicios/Juego/ListarJuegoCategoria.class
 Servicios/Categoria/AceptarPropuesta.class
 DB/Categoria/CategoriaDB.class
 Controlador/Juego/JuegoCategorias.class
 Filtros/CorsFilter.class
 Servicios/Categoria/ListarCategorias.class
+Modelo/BannerPrincipal.class
 Servicios/Juego/CrearJuegoServlet.class
 Controlador/Biblioteca/Biblioteca.class
+Controlador/Juego/ListarJuegosFiltros.class
+Servicios/Juego/ListarJuegoGratuitos.class
 Servicios/GrupoFamiliar/CrearGrupoFamiliar.class
 Controlador/Empresa/CRUDEmpresa.class
 Servicios/Empresa/ListarUsuarioEmpresa.class
@@ -62,6 +70,7 @@ Servicios/Empresa/EditarEmpresa.class
 Servicios/Juego/AsignarCategoriaJuegoServlet.class
 DB/UsuarioEmpresa/UsuarioEmpresaDB.class
 DB/Usuario/BilleteraDB.class
+Servicios/Juego/ListarJuegoRecientes.class
 Controlador/Usuario/RecargarSaldo.class
 Modelo/CategoriasAprobadas.class
 Servicios/Juego/DesactivarComentariosEmpresa.class
@@ -73,7 +82,9 @@ Modelo/Comentario.class
 Controlador/Juego/CRUDJuego.class
 Servicios/Juego/ListarJuegosEmpresaServlet.class
 Controlador/Categoria/CRUDCategoria.class
+Servicios/Juego/BuscarJuegoPorTitulo.class
 Servicios/Empresa/CrearEmpresaServlet.class
+Servicios/BannerPrincipal/BannerServlet.class
 Servicios/Categoria/EliminarCategoria.class
 Controlador/Comision/ComisionGlob.class
 Servicios/Categoria/RechazarPropuesta.class

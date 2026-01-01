@@ -71,6 +71,20 @@ public class ComentarioDB {
         return listaComentarios;
     }
     
-    
+    private final String QUERY_OBTENER_CALIFICACIONES_JUEGO = "SELECT (calificacion) FROM Comentario WHERE id_juego = ? AND comentario_padre IS NULL;";
+    public List<Integer> listCalificacionesJuego(String idJuego){
+        List<Integer> listaCalificaciones = new ArrayList<>();
+        try (PreparedStatement ps = conn.prepareStatement(QUERY_OBTENER_CALIFICACIONES_JUEGO)){
+            ps.setString(1, idJuego);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                int calificacion = rs.getInt("calificacion");
+                listaCalificaciones.add(calificacion);
+            }
+        } catch (SQLException e) {
+            System.err.print("Error al obtner las calificaciones del juego " + e.getMessage());
+        }
+        return listaCalificaciones;
+    }
     
 }

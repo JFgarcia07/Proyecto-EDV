@@ -80,4 +80,18 @@ public class TransaccionVentaDB {
         }
         return 0;
     }
+    
+    private final String QEURY_OBTNER_NUMERO_VENTAS_JUEGO = "SELECT COUNT(id_juego) FROM Transaccion_venta WHERE id_juego = ?";
+    public int obtnerCantidadDeVentas(String idJuego){
+        try (PreparedStatement ps = conn.prepareStatement(QEURY_OBTNER_NUMERO_VENTAS_JUEGO)){
+            ps.setString(1, idJuego);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                return rs.getInt(1);  
+            }
+        } catch (SQLException e) {
+            System.err.print("Error al obtner la cantidad de ventas del juego " + e.getMessage());
+        }
+        return 0;
+    }
 }

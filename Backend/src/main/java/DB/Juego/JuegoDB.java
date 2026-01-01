@@ -83,13 +83,7 @@ public class JuegoDB {
         return listaJuegos;
     }
     
-    private final String QUERY_BUSCAR_JUEGO_POR_TITULO = "SELECT "
-            + "j.id_juego, j.titulo, j.descripcion, j.precio, j.recursos_minimos, "
-            + "j.clasificacion_edad, j.fecha_lanzamiento, j.estado_venta, j.imagen, "
-            + "ed.nombre_empresa "
-            + "FROM Juego j "
-            + "INNER JOIN Empresa_desarrolladora ed ON j.id_empresa = ed.id_empresa "
-            + "WHERE j.id_juego = ?";
+    private final String QUERY_BUSCAR_JUEGO_POR_TITULO = "SELECT * FROM Juego WHERE titulo = ?";
     public Juego buscarJuegoPorTitulo (String titulo) {
         try (PreparedStatement ps = conn.prepareStatement(QUERY_BUSCAR_JUEGO_POR_TITULO)) {
             ps.setString(1, titulo);
@@ -104,9 +98,8 @@ public class JuegoDB {
                 Date fechaLanzamiento = rs.getDate("fecha_lanzamiento");
                 boolean estado = rs.getBoolean("estado_venta");
                 String imagen = rs.getString("imagen");
-                
+               
                 Juego juego = new Juego(idJuego, idEmpresa, titulo, descripcion, precio, recursos, clasificacion, fechaLanzamiento, estado, imagen);
-                juego.setNombreEmpresa(idEmpresa);
                 
                 return juego;
             }
@@ -316,5 +309,66 @@ public class JuegoDB {
             System.err.print("Error al verificar si se puede comentar " + e.getMessage());
         }
         return false;
+    }
+    
+    private final String QUERY_LISTAR_JUEGOS_POR_PRECIO = "SELECT * FROM Juego WHERE precio = ?";
+    public List<Juego> listarJuegosPorPrecio (double precio) {
+       List<Juego> listaJuegos = new ArrayList<>();
+        try (PreparedStatement ps = conn.prepareStatement(QUERY_LISTAR_JUEGOS_POR_PRECIO)){
+            ps.setDouble(1, precio);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                String idJuego = rs.getString("id_juego");
+                String idEmpresa = rs.getString("id_empresa");
+                String titulo = rs.getString("titulo");
+                String descripcion = rs.getString("descripcion");
+                String recursos = rs.getString("recursos_minimos");
+                String clasificacion = rs.getString("clasificacion_edad");
+                Date fechaLanzamiento = rs.getDate("fecha_lanzamiento");
+                boolean estado = rs.getBoolean("estado_venta");
+                String imagen = rs.getString("imagen");
+                boolean comentarios = rs.getBoolean("comentarios");
+                
+                Juego juego = new Juego(idJuego, idEmpresa, titulo, descripcion, precio, recursos, clasificacion, fechaLanzamiento, estado, imagen);
+                juego.setComentarios(comentarios);
+                
+                listaJuegos.add(juego);
+            }
+        } catch (SQLException e) {
+            System.err.print("Error al listar los juego " + e.getMessage());
+        }
+        return listaJuegos;
+    }
+    
+    private final String QUERY_OBTENER_JUEGOS_POR_CATEGORIA = "SELECT j.* FROM Juego j "
+            + " INNER JOIN Juego_categoria jc ON jc.id_juego = j.id_juego "
+            + " WHERE jc.id_categoria = ? AND jc.aprobado = 1;";
+    public List<Juego> listaJuegosPorCategoria (String idCategoria) {
+        List<Juego> listaJuegos = new ArrayList<>();
+        try (PreparedStatement ps = conn.prepareStatement(QUERY_OBTENER_JUEGOS_POR_CATEGORIA)){
+            ps.setString(1, idCategoria);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                String idJuego = rs.getString("id_juego");
+                String idEmpresa = rs.getString("id_empresa");
+                String titulo = rs.getString("titulo");
+                String descripcion = rs.getString("descripcion");
+                double precio = rs.getDouble("precio");
+                String recursos = rs.getString("recursos_minimos");
+                String clasificacion = rs.getString("clasificacion_edad");
+                Date fechaLanzamiento = rs.getDate("fecha_lanzamiento");
+                boolean estado = rs.getBoolean("estado_venta");
+                String imagen = rs.getString("imagen");
+                boolean comentarios = rs.getBoolean("comentarios");
+                
+                Juego juego = new Juego(idJuego, idEmpresa, titulo, descripcion, precio, recursos, clasificacion, fechaLanzamiento, estado, imagen);
+                juego.setComentarios(comentarios);
+                
+                listaJuegos.add(juego);
+            }
+        } catch (SQLException e) {
+            System.err.print("Error al listar los juego " + e.getMessage());
+        }
+        return listaJuegos;
     }
 }
