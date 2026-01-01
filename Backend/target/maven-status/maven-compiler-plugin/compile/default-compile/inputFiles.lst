@@ -1,3 +1,4 @@
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/BannerPrincipal/CRUDBanner.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/Biblioteca/Biblioteca.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/Calificacion_Comentario/CalificacionComentario.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/Categoria/CRUDCategoria.java
@@ -6,18 +7,20 @@
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/GrupoFamiliar/GrupFamiliar.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/Juego/CRUDJuego.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/Juego/JuegoCategorias.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/Juego/ListarJuegosFiltros.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/TransaccionVenta/Transaccion.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/Usuario/CrearUsuario.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/Usuario/CrearUsuarioEmpresa.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/Usuario/RecargarSaldo.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Controlador/ValidarLogIn.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/BannerPrincipal/BannerDB.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/Biblioteca/BibliotecaDB.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/Calificacion_comentario/ComentarioDB.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/Categoria/CategoriaDB.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/Comision/ComisionGlobalDB.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/DBconnectionSingleton.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/Empresa/EmpresaDB.java
-/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/GrupoFamiliarDB.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/GrupoFamiliar/GrupoFamiliarDB.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/Juego/JuegoDB.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/LogInDB.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/SesionGlobal.java
@@ -26,6 +29,7 @@
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/Usuario/UsuarioDB.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/DB/UsuarioEmpresa/UsuarioEmpresaDB.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Filtros/CorsFilter.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Modelo/BannerPrincipal.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Modelo/Biblioteca.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Modelo/Billetera.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Modelo/Categoria.java
@@ -39,6 +43,8 @@
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Modelo/MiembroGrupo.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Modelo/TransaccionVenta.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Modelo/Usuario.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/BannerPrincipal/BannerServlet.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/BannerPrincipal/ListarImagenesBanner.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Biblioteca/InstalarJuegoBiblioteca.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Biblioteca/ListarBiblioteca.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Calificacion_comentario/CalificacionComentarioServlet.java
@@ -59,6 +65,7 @@
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/GrupoFamiliar/EliminarMiembroGrupo.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/GrupoFamiliar/ListarGrupos.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Juego/AsignarCategoriaJuegoServlet.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Juego/BuscarJuegoPorTitulo.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Juego/CrearJuegoServlet.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Juego/DesactivarComentariosEmpresa.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Juego/DesactivarComentariosJuego.java
@@ -66,8 +73,12 @@
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Juego/EditarJuegoServlet.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Juego/InfoJuegoPorID.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Juego/ListarCategoriasAprobadas.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Juego/ListarJuegoCategoria.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Juego/ListarJuegoGratuitos.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Juego/ListarJuegoRecientes.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Juego/ListarJuegos.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Juego/ListarJuegosEmpresaServlet.java
+/home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Juego/ListarJuegosRecomendados.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/Juego/SePuedeComentar.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/LogInServlet.java
 /home/jfgarcianata/NetBeansProjects/Backend/src/main/java/Servicios/TransaccionVenta/TransaccionVentaServlet.java

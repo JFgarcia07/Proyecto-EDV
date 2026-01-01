@@ -4,7 +4,7 @@
  */
 package Controlador.GrupoFamiliar;
 
-import DB.GrupoFamiliarDB;
+import DB.GrupoFamiliar.GrupoFamiliarDB;
 import DB.SesionGlobal;
 import DB.Usuario.UsuarioDB;
 import Modelo.GrupoFamiliar;

@@ -153,4 +153,5 @@ public class CategoriaDB {
             System.err.println("Error al rechazar propuesta: " + e.getMessage());
         }
     }
+    
 }

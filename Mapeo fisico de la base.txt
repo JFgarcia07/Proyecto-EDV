@@ -1,0 +1,125 @@
+Mapeo fisico de la base de datos
+
+CREATE DATABASE DB_tienda_digital;
+
+USE DB_tienda_digital;
+
+CREATE TABLE Rol (
+	id_rol VARCHAR(5) NOT NULL PRIMARY KEY,
+	nombre_rol VARCHAR(20) NOT NULL,
+	permisos ENUM ('TODOS','EMPRESA','COMUN') NOT NULL
+);
+
+CREATE TABLE Usuario (
+	id_usuario VARCHAR(13) NOT NULL PRIMARY KEY,
+	nombre_usuario VARCHAR(100) NOT NULL,
+	email VARCHAR(100) NOT NULL,
+	password VARCHAR(20) NOT NULL,
+	fecha_nacimiento DATE NOT NULL,
+	pais VARCHAR(50) NOT NULL,
+	telefono VARCHAR(12),
+	id_rol VARCHAR(5) NOT NULL,
+	CONSTRAINT fk_id_rol FOREIGN KEY (id_rol) REFERENCES Rol(id_rol)
+);
+
+CREATE TABLE Empresa_desarrolladora (
+	id_empresa VARCHAR(13) NOT NULL PRIMARY KEY,
+	nombre_empresa VARCHAR(100) NOT NULL,
+	descripcion VARCHAR(350) NOT NULL,
+	porcentaje_comision_especifica DOUBLE
+);
+
+CREATE TABLE Usuario_empresa (
+	id_empresa VARCHAR(13) NOT NULL,
+	id_usuario VARCHAR(13) NOT NULL,
+	PRIMARY KEY (id_empresa, id_usuario)
+);
+
+CREATE TABLE Billetera_digital (
+	id_billetera VARCHAR(5) NOT NULL PRIMARY KEY,
+	id_usuario VARCHAR(13) NOT NULL,
+	saldo_actual DOUBLE DEFAULT 0.0
+);
+
+CREATE TABLE Comision_global(
+	id_comision VARCHAR(5) NOT NULL PRIMARY KEY,
+	porcentaje DOUBLE NOT NULL
+);
+
+CREATE TABLE Juego (
+	id_juego VARCHAR(13) NOT NULL PRIMARY KEY,
+	id_empresa VARCHAR(13) NOT NULL,
+	titulo VARCHAR(50) NOT NULL,
+	descripcion VARCHAR(350) NOT NULL,
+	precio DOUBLE NOT NULL,
+	recursos_minimos VARCHAR(350) NOT NULL,
+	clasificacion_edad ENUM('E','T','M') NOT NULL,
+ 	fecha_lanzamiento DATE NOT NULL,
+ 	estado_venta BOOLEAN DEFAULT TRUE,
+ 	id_comision VARCHAR(5) NOT NULL,  
+ 	CONSTRAINT fk_id_empresa FOREIGN KEY (id_empresa) REFERENCES Empresa_desarrolladora (id_empresa),
+ 	CONSTRAINT fk_id_comision FOREIGN KEY (id_comision) REFERENCES Comision_global (id_comision)
+);
+
+CREATE TABLE categoria (
+	id_categoria VARCHAR(3) NOT NULL PRIMARY KEY,
+	nombre_categoria VARCHAR(50)
+);
+
+CREATE TABLE Juego_categoria (
+	id_juego VARCHAR(13) NOT NULL,
+	id_categoria VARCHAR(3) NOT NULL,
+	PRIMARY KEY (id_juego, id_categoria)
+);
+
+CREATE TABLE Biblioteca (
+	id_biblioteca INT AUTO_INCREMENT PRIMARY KEY,
+	id_usuario VARCHAR(13) NOT NULL,
+	id_juego VARCHAR(13) NOT NULL,
+	CONSTRAINT fk_id_usuario FOREIGN KEY (id_usuario) REFERENCES Usuario (id_usuario)
+);
+
+CREATE TABLE Comentario (
+	id_comentario INT AUTO_INCREMENT PRIMARY KEY,
+	id_juego VARCHAR(13) NOT NULL,
+	id_usuario VARCHAR(13) NOT NULL,
+	comentario VARCHAR(500) NOT NULL,
+	comentario_padre INT AUTO_INCREMENT NOT NULL,
+	visibilidad BOOLEAN DEFAULT TRUE,
+	CONSTRAINT fk_id_juego_comentario FOREIGN KEY (id_juego) REFERENCES Juego (id_juego),
+	CONSTRAINT fk_id_usuario_comentario FOREIGN KEY (id_usuario) REFERENCES Usuario (id_usuario)
+);
+
+CREATE TABLE Calificacion (
+	id_calificacion INT AUTO_INCREMENT PRIMARY KEY,
+	id_juego VARCHAR(13) NOT NULL,
+	id_usuario VARCHAR(13) NOT NULL,
+	calificacion INT CHECK (calificacion BETWEEN 1 AND 5),
+	CONSTRAINT fk_id_juego_calificacion FOREIGN KEY (id_juego) REFERENCES Juego (id_juego),
+	CONSTRAINT fk_id_usuario_calificacion FOREIGN KEY (id_usuario) REFERENCES Usuario (id_usuario)
+);
+
+CREATE TABLE Grupo_familiar (
+	id_grupo VARCHAR(5) NOT NULL PRIMARY KEY,
+	id_usuario_creador VARCHAR(13) NOT NULL,
+	nombre_grupo VARCHAR(100) NOT NULL,
+	CONSTRAINT fk_id_usuario_grupo_familiar FOREIGN KEY (id_usuario_creador) REFERENCES Usuario (id_usuario)
+);
+
+CREATE TABLE Miembro_grupo (
+	id_grupo VARCHAR(5) NOT NULL,
+	id_usuario VARCHAR(13) NOT NULL,
+	PRIMARY KEY (id_grupo, id_usuario)
+);
+
+CREATE TABLE Transaccion_venta (
+	id_transaccion INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	id_usuario VARCHAR(13) NOT NULL,
+	id_juego VARCHAR(13) NOT NULL,
+	fecha_compra DATE NOT NULL,
+	monto_total DOUBLE NOT NULL,
+	comision_plataforma DOUBLE NOT NULL,
+	ingreso_neto_empresa DOUBLE NOT NULL,
+	CONSTRAINT fk_id_usuario_transaccion FOREIGN KEY (id_usuario) REFERENCES Usuario (id_usuario),
+	CONSTRAINT fk_id_juego_transaccion FOREIGN KEY (id_juego) REFERENCES Juego (id_juego)
+);

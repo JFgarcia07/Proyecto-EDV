@@ -36,9 +36,19 @@ public class ListarJuegosEmpresaServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String idEmpresa;
+        
         JuegoDB juegoDB = new JuegoDB();
         
-        List<Juego> listaJuegos = juegoDB.listaJuegosPorEmpresa(SesionGlobal.idEmpresa);
+        String idEmpresaURL = request.getParameter("idEmpresa");
+        
+        if(idEmpresaURL == null || idEmpresaURL.isBlank()){
+            idEmpresa = SesionGlobal.idEmpresa;
+        } else {
+            idEmpresa = idEmpresaURL;
+        }
+        
+        List<Juego> listaJuegos = juegoDB.listaJuegosPorEmpresa(idEmpresa);
         
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
